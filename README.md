@@ -1,2 +1,5 @@
-# kong-meetup-berlin-june-2023
-Slides an scripts from the Kong Meetup in Berlin on June 1st 2023
+# Kong Meetup Berlin June 2023
+
+In the folder scripts you find working examples of how to use the full toolset of Kong (from Insomnia/inso -> decK -> Gateway -> Developer Portal) to create a CI/CD chain.
+
+In the slides folder find the slides presented during the meetup
