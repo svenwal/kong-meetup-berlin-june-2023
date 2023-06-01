@@ -54,13 +54,8 @@ git checkout main
 
 echo -e "\n${RED}**** 5) 🦍 Backend deployed, now Kong is configureds to expose the service by converting the specification to a decK YAML file and applying it. This also includes an auto-added default plugin config from the repository${NC}"
 read
-echo -e "${GREEN}inso generate config ./uuid-generator.yaml -o kong-uuid-generator.yaml${NC}"
-inso generate config ./uuid-generator.yaml -o kong-uuid-generator.yaml
-echo -e "${RED}** Updating to latest decK file format version if needed${NC}"
-mv kong-uuid-generator.yaml kong-uuid-generator-old.yaml
-echo -e "${GREEN}deck convert --from kong-gateway-2.x --to kong-gateway-3.x --input-file kong-uuid-generator.yaml --output-file kong-uuid-generator.yaml${NC}"
-deck convert --from kong-gateway-2.x --to kong-gateway-3.x --input-file kong-uuid-generator-old.yaml --output-file kong-uuid-generator.yaml
-rm kong-uuid-generator-old.yaml
+echo -e "${GREEN}kced openapi2kong --spec ./uuid-generator.yaml --output-file kong-uuid-generator.yaml${NC}"
+kced openapi2kong --spec ./uuid-generator.yaml --output-file kong-uuid-generator.yaml
 
 if [ "$konnect" ]; then
   unset DECK_KONG_ADDR
